@@ -6,3 +6,11 @@ export type albums= {
 export type Query={
     alldata: albums[];
 }
+
+export interface Gadget {
+    Id:number,
+    ProductName:string,
+    Brand:string,
+    Cost:number,
+    Type:string
+}

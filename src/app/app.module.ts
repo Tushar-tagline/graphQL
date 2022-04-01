@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
 import { Apollo, ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InMemoryCache } from '@apollo/client/core';
 import { ListComponent } from './list/list.component';
 import { CommonModule } from '@angular/common';
@@ -23,6 +23,7 @@ import { CommonModule } from '@angular/common';
     ApolloModule,
     FormsModule,
     CommonModule,
+    ReactiveFormsModule
     
   ],
   providers: [

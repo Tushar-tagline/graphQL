@@ -13,6 +13,32 @@ import { albums, Query } from '../types';
 export class ListComponent implements OnInit {
   public rates: any = []
   public getalbums: any
+  selectedtitle:string = '';  
+  
+  
+  //public Get_BrandFilter = gql`
+  // query ($title:String){
+  //   albums(title:$title){
+  //     data{
+  //       id
+  //       title
+  //     }
+  //   }
+  // } 
+  // `;
+
+  public Get_BrandFilter = gql`
+  query 
+  {
+    albums(options:{ search :{ q: "omnis laborum odio" }   } ) {
+      data {
+        id
+        title
+      }
+      
+    }
+  }`;
+
   public GETALBUM = gql`
   query {
     albums(options:{paginate:{page:0,limit:10}}) {
@@ -22,9 +48,10 @@ export class ListComponent implements OnInit {
      }
     }
   }`;
+
   public updatealbum = gql`
   mutation{
-    updateAlbum(id:"2",input:{title:"hello"}){
+    updateAlbum(id:"3",input:{title:"hello tushar"}){
  	id
   title
     user{
@@ -54,7 +81,7 @@ export class ListComponent implements OnInit {
     }
   }`
 
-  
+
   constructor(public apollo: Apollo) { }
 
   ngOnInit() {
@@ -70,52 +97,29 @@ export class ListComponent implements OnInit {
       },
       fetchPolicy: 'network-only'
     })
-    this.rates = this.getalbums
+     this.getalbums
       .valueChanges.subscribe((res: any) => {
-        this.rates = [res]
-        console.log('res :>> ', res);
+        this.rates = res.data.albums.data
+        // console.log('getAlbum :>> ', res);
       })
-    // this.apollo.watchQuery({
-    //   query: gql
-    //   `
-    //   {
-    //     album(id:"2"){
-    //       id
-    //       title
-    //       user{
-    //         name
-    //         email
-    //         username
-    //         phone
-    //         website
-    //       } 
-    //     }
-
-    //   }`
-    // }).valueChanges
-    //   .subscribe((res: any) => {
-    //     this.rates = [res.data]
-    //     console.log('rates :>> ', this.rates)
-    //   })
-    //  this.updatedata();
-    // this.deletedata()
-    // this.createdata()
+    //this.deletedata(2)
+   //this.searchByBrand()
   }
 
   public updatedata() {
     this.apollo.mutate({
       mutation: this.updatealbum
     }).subscribe((res) => {
-      this.rates = [res.data]
-      console.log('res :>> ', res.data);
+      // this.rates = [res.data]
+      console.log('update :>> ', res.data);
     })
   }
 
-  public deletedata() {
+  public deletedata(id:any) {
     this.apollo.mutate({
       mutation: this.deletealbum
     }).subscribe((res) => {
-      console.log('res :>> ', res);
+      console.log('delete :>> ', res);
     })
   }
 
@@ -123,8 +127,8 @@ export class ListComponent implements OnInit {
     this.apollo.mutate({
       mutation: this.createalbum
     }).subscribe((res) => {
-      this.rates = [res.data]
-      console.log('res :>> ', res);
+      // this.rates = [res.data]
+      console.log('create :>> ', res);
     })
   }
 
@@ -136,6 +140,19 @@ export class ListComponent implements OnInit {
   //     },
   //   });
   // }
-  
+  searchByBrand(){
+    this.apollo.watchQuery<any>({
+       query: this.Get_BrandFilter,
+       variables:{
+         title: this.selectedtitle
+       }
+     })
+     .valueChanges
+     .subscribe((res) => {
+       //console.log(loading);
+       this.rates = res.data.albums.data
+        console.log('serch :>> ', this.rates);
+     });
+   }
 
 }

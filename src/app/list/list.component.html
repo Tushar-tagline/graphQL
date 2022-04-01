@@ -1,23 +1,34 @@
-<!-- <p>list works!</p>
-<table class="table bg-dark text-danger">
+ <p>list works!</p>
+ <form class="row g-3"  >
+  <div class="col-auto">
+    <label for="txtSearch" class="visually-hidden">Search By Brand</label>
+    <input type="text" name="txtSearch" class="form-control" id="txtSearch" placeholder="Search By title" [(ngModel)]="selectedtitle">
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3" (click)="searchByBrand()">Search</button>
+  </div>
+</form>
+<table class="table bg-dark text-white">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">No.</th>
+        <th scope="col">ID</th>
+        <th scope="col">Type</th>
+        <th scope="col">Title</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of rates">
-        <th scope="row">1</th>
-        <td>{{item.data.albums.data.id}}</td>
-        <td>{{item.data.albums.data.title}}</td>
-        <td>{{item.album.user.email }}</td> -->
-      <!-- </tr>
+      <tr *ngFor="let item of rates; let i =index;" >
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.id}}</td>
+        <td>{{item.__typename}}</td>
+        <td>{{item.title }}</td>
+        
+          <td><button class="btn btn-success" (click)="updatedata()">Edit</button></td>
+          <td><button class="btn btn-danger" (click)="deletedata(item.id)">Delete</button></td>
+        
+       </tr>
     </tbody>
-  </table> -->
-  <!-- <button pButton type="button" badge="8" class="p-button-warning">Messages</button>
-  <button pButton type="button"  icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-info">8</button>
-
-<button pButton type="button" label="Info" class="p-button-info">submit</button> -->
+  </table> 
+  
