@@ -85,7 +85,7 @@ export class ListComponent implements OnInit {
       },
       fetchPolicy: 'network-only'
     })
-    this.getalbums
+    this.getalbums 
       .valueChanges.subscribe((res: any) => {
         this.rates = res.data.albums.data
         // console.log('getAlbum :>> ', res);
@@ -98,7 +98,7 @@ export class ListComponent implements OnInit {
     this.apollo.mutate({
       mutation: this.updatealbum
     }).subscribe((res) => {
-      // this.rates = [res.data]
+      //this.rates = [res.data]
       console.log('update :>> ', res.data);
     })
   }
