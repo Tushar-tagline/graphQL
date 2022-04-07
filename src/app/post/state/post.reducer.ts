@@ -1,7 +1,16 @@
-import { createReducer } from "@ngrx/store"
+import { state } from "@angular/animations"
+import { createReducer, on } from "@ngrx/store"
+import { addpost } from "./post.action"
 import { initialstate } from "./post.state"
 
-const _postReducer = createReducer(initialstate)
+const _postReducer = createReducer(initialstate , on(addpost , (state ,action)=>{
+    let post ={...action.post}
+    post.id = state.posts.length +1
+    return{
+        ...state,
+        posts:[...state.posts,post]
+    }
+}))
 
 
 export function postReducer(state: any, action: any) {

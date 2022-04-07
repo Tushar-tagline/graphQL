@@ -9,6 +9,6 @@ export interface appstate{
 }
 
 export const appreducer={
-    counter:counterReducer,
+    firstngrx:counterReducer,
     posts:postReducer
 }

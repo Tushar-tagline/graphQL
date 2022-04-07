@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { counterstate } from "./couter.state";
 
-export const appmodulename = 'counter'
+export const appmodulename = 'firstngrx'
 
 const getcouterstate =   createFeatureSelector<counterstate>(appmodulename);
 

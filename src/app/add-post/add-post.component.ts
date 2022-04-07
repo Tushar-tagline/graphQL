@@ -1,0 +1,34 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { validate } from 'graphql';
+import { post } from '../model/post.model';
+import { addpost, add_post } from '../post/state/post.action';
+import { getpost } from '../post/state/post.selector';
+import { appstate } from '../store/app.state';
+
+@Component({
+  selector: 'app-add-post',
+  templateUrl: './add-post.component.html',
+  styleUrls: ['./add-post.component.scss']
+})
+export class AddPostComponent implements OnInit {
+  public addProduct!: FormGroup
+  
+  constructor(private store: Store<appstate>) { }
+
+  ngOnInit(): void {
+    this.addProduct =new FormGroup({
+      title:new FormControl(null,Validators.required),
+      descripation:new FormControl(null,Validators.required)
+    })
+  
+  }
+  onSubmit(){
+   const data:post= {
+      title:this.addProduct.value.title,
+      descripation:this.addProduct.value.descripation
+    }
+    this.store.dispatch(addpost({post:data}))
+  }
+}

@@ -17,22 +17,22 @@ export const initialstate:poststate ={
             descripation:'good'
         },
         {
-            id:1,
+            id:3,
             title:'simple',
             descripation:'good'
         },
         {
-            id:2,
+            id:4,
             title:'simple',
             descripation:'good'
         },
         {
-            id:1,
+            id:5,
             title:'simple',
             descripation:'good'
         },
         {
-            id:2,
+            id:6,
             title:'simple',
             descripation:'good'
         }

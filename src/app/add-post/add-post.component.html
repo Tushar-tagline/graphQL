@@ -1,0 +1,19 @@
+<div class="row mt-4">
+    <div class="col-md-12 ">
+        <form [formGroup]="addProduct" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Title </label>
+                <input type="text" class="form-control" id="ProductName" formControlName="title">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Decripation</label>
+                <input type="text" class="form-control" id="price"  formControlName="descripation">
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">add item</button>
+            </div>
+        </form>
+    </div>
+</div>
+

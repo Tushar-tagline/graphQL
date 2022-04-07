@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddPostComponent } from './add-post/add-post.component';
 import { CounterComponent } from './counters/counter/counter.component';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
@@ -21,8 +22,13 @@ const routes: Routes = [
   },
   {
     path:'posts',
-    component:PostsComponent
+    component:PostsComponent,
+    children:[{
+      path:'addpost',
+      component:AddPostComponent
+    }]
   },
+  
   {
     path:'**',
     redirectTo:''

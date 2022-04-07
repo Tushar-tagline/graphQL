@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
 import { Apollo, ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InMemoryCache } from '@apollo/client/core';
 import { ListComponent } from './list/list.component';
 import { CounterComponent } from './counters/counter/counter.component';
@@ -21,6 +21,7 @@ import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
 import { CustomoutputComponent } from './counters/customoutput/customoutput.component';
 import { appreducer } from './store/app.state';
+import { AddPostComponent } from './add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { appreducer } from './store/app.state';
     CustomoutputComponent,
     HomeComponent,
     PostsComponent,
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { appreducer } from './store/app.state';
     ApolloModule,
     FormsModule,
     CommonModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(appreducer),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     
