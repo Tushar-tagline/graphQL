@@ -9,12 +9,18 @@ import { HttpLink } from 'apollo-angular/http';
 import { FormsModule } from '@angular/forms';
 import { InMemoryCache } from '@apollo/client/core';
 import { ListComponent } from './list/list.component';
-import { CommonModule } from '@angular/common';
 import { CounterComponent } from './counters/counter/counter.component';
 import { CounterbuttonComponent } from './counters/counterbutton/counterbutton.component';
 import { CounteroutputComponent } from './counters/counteroutput/counteroutput.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './state/couter.reducer';
+import { HomeComponent } from './home/home.component';
+import { PostsComponent } from './post/postslist/postslist.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { CommonModule } from '@angular/common';
+import { CustomoutputComponent } from './counters/customoutput/customoutput.component';
+import { appreducer } from './store/app.state';
 
 @NgModule({
   declarations: [
@@ -23,6 +29,9 @@ import { counterReducer } from './state/couter.reducer';
     CounterComponent,
     CounterbuttonComponent,
     CounteroutputComponent,
+    CustomoutputComponent,
+    HomeComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +40,8 @@ import { counterReducer } from './state/couter.reducer';
     ApolloModule,
     FormsModule,
     CommonModule,
-    StoreModule.forRoot({counter:counterReducer}),
+    StoreModule.forRoot(appreducer),
+    StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     
   ],
   providers: [
