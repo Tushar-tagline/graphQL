@@ -1,0 +1,19 @@
+<p>edit works!</p>
+<div class="row mt-4">
+    <div class="col-md-12 ">
+        <form [formGroup]="updatepost" >
+            <div class="mb-3">
+                <label for="Title" class="form-label">Title </label>
+                <input type="text" class="form-control"  formControlName="title">
+            </div>
+            <div class="mb-3">
+                <label for="Decripation" class="form-label">Decripation</label>
+                <input type="text" class="form-control"   formControlName="description">
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">update</button>
+            </div>
+        </form>
+    </div>
+</div>

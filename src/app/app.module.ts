@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
 import { CustomoutputComponent } from './counters/customoutput/customoutput.component';
 import { appreducer } from './store/app.state';
 import { AddPostComponent } from './add-post/add-post.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AddPostComponent } from './add-post/add-post.component';
     HomeComponent,
     PostsComponent,
     AddPostComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,

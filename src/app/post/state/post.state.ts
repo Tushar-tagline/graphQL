@@ -8,33 +8,33 @@ export const initialstate:poststate ={
     posts:[
         {
             id:1,
-            title:'simple',
-            descripation:'good'
+            title:'simple1',
+            description:'good1'
         },
         {
             id:2,
-            title:'simple',
-            descripation:'good'
+            title:'simple2',
+            description:'good2'
         },
         {
             id:3,
-            title:'simple',
-            descripation:'good'
+            title:'simple3',
+            description:'good3'
         },
         {
             id:4,
-            title:'simple',
-            descripation:'good'
+            title:'simple4',
+            description:'good4'
         },
         {
             id:5,
-            title:'simple',
-            descripation:'good'
+            title:'simple5',
+            description:'good5'
         },
         {
             id:6,
-            title:'simple',
-            descripation:'good'
+            title:'simple6',
+            description:'good6'
         }
     ]
 }
