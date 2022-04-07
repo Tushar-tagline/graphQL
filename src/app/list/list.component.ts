@@ -13,15 +13,28 @@ import { albums, Query } from '../types';
 export class ListComponent implements OnInit {
   public rates: any = []
   public getalbums: any
+  selectedtitle: string = '';
   public GETALBUM = gql`
   query {
-    albums(options:{paginate:{page:0,limit:10}}) {
+    albums(options:{paginate:{page:0,limit:15}}) {
       data{
        id
        title
      }
     }
   }`;
+
+  public Get_BrandFilter = gql`
+  query Albums($options: PageQueryOptions) {
+    albums(options: $options) {
+      data {
+        id
+        title
+      }
+    
+    }
+  }`;
+
   public updatealbum = gql`
   mutation{
     updateAlbum(id:"2",input:{title:"hello"}){
@@ -54,7 +67,7 @@ export class ListComponent implements OnInit {
     }
   }`
 
-  
+
   constructor(public apollo: Apollo) { }
 
   ngOnInit() {
@@ -72,41 +85,16 @@ export class ListComponent implements OnInit {
     })
     this.rates = this.getalbums
       .valueChanges.subscribe((res: any) => {
-        this.rates = [res]
+        this.rates = res.data.albums.data
         console.log('res :>> ', res);
       })
-    // this.apollo.watchQuery({
-    //   query: gql
-    //   `
-    //   {
-    //     album(id:"2"){
-    //       id
-    //       title
-    //       user{
-    //         name
-    //         email
-    //         username
-    //         phone
-    //         website
-    //       } 
-    //     }
-
-    //   }`
-    // }).valueChanges
-    //   .subscribe((res: any) => {
-    //     this.rates = [res.data]
-    //     console.log('rates :>> ', this.rates)
-    //   })
-    //  this.updatedata();
-    // this.deletedata()
-    // this.createdata()
   }
 
   public updatedata() {
     this.apollo.mutate({
       mutation: this.updatealbum
     }).subscribe((res) => {
-      this.rates = [res.data]
+      // this.rates = res.data
       console.log('res :>> ', res.data);
     })
   }
@@ -123,7 +111,7 @@ export class ListComponent implements OnInit {
     this.apollo.mutate({
       mutation: this.createalbum
     }).subscribe((res) => {
-      this.rates = [res.data]
+      // this.rates = [res.data]
       console.log('res :>> ', res);
     })
   }
@@ -136,6 +124,23 @@ export class ListComponent implements OnInit {
   //     },
   //   });
   // }
-  
+  searchByBrand() {
+    this.apollo.watchQuery<any>({
+      query: this.Get_BrandFilter,
+      variables: {
+        "options": {
+          "search": {
+            "q": this.selectedtitle
+          },
+        }
+      }
+    })
+      .valueChanges
+      .subscribe((res) => {
+        //console.log(loading);
+        this.rates = res.data.albums.data
+        console.log('serch :>> ', this.rates);
+      });
+  }
 
 }
