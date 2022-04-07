@@ -6,6 +6,7 @@ import { Observable, observable } from 'rxjs';
 import { changname, customadd } from 'src/app/state/couter.action';
 import { getchangename } from 'src/app/state/couter.selector';
 import { counterstate } from 'src/app/state/couter.state';
+import { appstate } from 'src/app/store/app.state';
 
 @Component({
   selector: 'app-customoutput',
@@ -16,7 +17,7 @@ export class CustomoutputComponent implements OnInit {
   public value!: number
   // public name!: any
   public name$!:Observable<any>;
-  constructor(private store: Store<{ counter: { counter: counterstate, changname: counterstate } }>) { }
+  constructor(private store: Store<appstate >) { }
 
   ngOnInit(): void {
     this.name$=this.store.select(getchangename)
