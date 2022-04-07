@@ -11,11 +11,11 @@ import { getpost } from '../state/post.selector';
   styleUrls: ['./postslist.component.scss']
 })
 export class PostsComponent implements OnInit {
-  public posts$!:Observable<post[]>
-  constructor(private store: Store<appstate >) { }
+  public posts$!: Observable<post[]>
+  constructor(private store: Store<appstate>) { }
 
   ngOnInit(): void {
-    this.posts$=this.store.select(getpost)
+    this.posts$ = this.store.select(getpost)
   }
 
 }

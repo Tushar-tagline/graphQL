@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { validate } from 'graphql';
 import { post } from '../model/post.model';
@@ -14,21 +14,20 @@ import { appstate } from '../store/app.state';
 })
 export class AddPostComponent implements OnInit {
   public addProduct!: FormGroup
-  
-  constructor(private store: Store<appstate>) { }
+
+  constructor(private store: Store<appstate>, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.addProduct =new FormGroup({
-      title:new FormControl(null,Validators.required),
-      descripation:new FormControl(null,Validators.required)
+    this.addProduct = new FormGroup({
+      title: new FormControl(null, Validators.required),
+      description: new FormControl(null, Validators.required)
     })
-  
   }
-  onSubmit(){
-   const data:post= {
-      title:this.addProduct.value.title,
-      descripation:this.addProduct.value.descripation
+  onSubmit() {
+    const data: post = {
+      title: this.addProduct.value.title,
+      description: this.addProduct.value.description
     }
-    this.store.dispatch(addpost({post:data}))
+    this.store.dispatch(addpost({ post: data }))
   }
 }

@@ -1,39 +1,38 @@
 <p>posts works!</p>
 <!-- //using if post$ |asyac in table -->
 <div class="row">
-<div class="col-12">
-    <app-home></app-home>
-</div>
+    <div class="col-12">
+        <app-home></app-home>
+    </div>
 </div>
 
 <div class="row">
     <div class="col-md-6">
         <table class="table bg-light text-dark my-4">
             <thead>
-              <tr>
-                <th scope="col">No</th>
-                <th scope="col">ID</th>
-                 <th scope="col">Title</th>
-                <th scope="col">Decripation</th>
-              </tr>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Decripation</th>
+                    <th scope="col">Action</th>
+                </tr>
             </thead>
             <tbody>
-              
-              <tr *ngFor="let item of posts$ |async; let i =index;" >
-                <th scope="row">{{i+1}}</th>
-                <td>{{item.id}}</td>
-                <td>{{item.title }}</td>
-                <td>{{item.descripation}}</td>
-    
-            </tr>
+
+                <tr *ngFor="let item of posts$ |async; let i =index;">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item.id}}</td>
+                    <td>{{item.title }}</td>
+                    <td>{{item.description}}</td>
+                    <td><button class="btn btn-success" [routerLink]="['edit' ,item.id]">edit</button></td>
+                </tr>
             </tbody>
-            <button class="btn btn-primary" routerLink="/posts/addpost">addPosts</button> 
-          </table>
+            <button class="btn btn-primary" routerLink="/posts/addpost">addPosts</button>
+        </table>
     </div>
     <div class="col-4">
         <router-outlet></router-outlet>
-     </div>
-      
-</div>
+    </div>
 
- 
+</div>
