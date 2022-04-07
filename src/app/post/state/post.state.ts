@@ -12,7 +12,27 @@ export const initialstate:poststate ={
             descripation:'good'
         },
         {
+            id:2,
+            title:'simple',
+            descripation:'good'
+        },
+        {
             id:1,
+            title:'simple',
+            descripation:'good'
+        },
+        {
+            id:2,
+            title:'simple',
+            descripation:'good'
+        },
+        {
+            id:1,
+            title:'simple',
+            descripation:'good'
+        },
+        {
+            id:2,
             title:'simple',
             descripation:'good'
         }
