@@ -1,7 +1,7 @@
 import { state } from "@angular/animations";
 import { createReducer, on } from "@ngrx/store";
 
-import { decrement, increment, reset } from "./couter.action";
+import { changname, customadd, decrement, increment, reset } from "./couter.action";
 import { initialstate } from "./couter.state";
 
 const _counterReducer = createReducer(initialstate, on(increment, (state) => {
@@ -18,6 +18,17 @@ const _counterReducer = createReducer(initialstate, on(increment, (state) => {
     return {
         ...state,
         counter: 0
+    }
+}),on(customadd , (state,action) => {
+    console.log('action :>> ', action);
+    return {
+        ...state,
+        counter:state.counter+ action.value
+    }
+}),on(changname,(state)=>{
+    return{
+        ...state,
+        changname:'i am tushar'
     }
 })
 )
