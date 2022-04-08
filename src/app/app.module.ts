@@ -40,7 +40,7 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(appreducer),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     
   ],
