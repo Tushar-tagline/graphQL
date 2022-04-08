@@ -23,6 +23,7 @@ import { CustomoutputComponent } from './counters/customoutput/customoutput.comp
 import { appreducer } from './store/app.state';
 import { AddPostComponent } from './add-post/add-post.component';
 import { EditComponent } from './edit/edit.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { EditComponent } from './edit/edit.component';
     PostsComponent,
     AddPostComponent,
     EditComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
