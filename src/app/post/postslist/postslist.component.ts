@@ -9,7 +9,7 @@ import { getpost } from '../state/post.selector';
 @Component({
   selector: 'app-posts',
   templateUrl: './postslist.component.html',
-  styleUrls: ['./postslist.component.scss']
+  styleUrls: ['./postslist.component.scss'],
 })
 export class PostsComponent implements OnInit {
   public posts$!: Observable<post[]>

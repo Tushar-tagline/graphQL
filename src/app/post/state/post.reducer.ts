@@ -23,8 +23,8 @@ const _postReducer = createReducer(initialstate,
             posts: newpost
         }
     }),on(deletepost,(state ,{id})=>{
-        const newdelete = state.posts.filter((post)=>{
-            return post.id !== id
+        const newdelete = state.posts.filter((res)=>{
+            return res.id !== id
         })
          return {
              ...state,

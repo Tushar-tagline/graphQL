@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,14 +29,7 @@ import { HeaderComponent } from './header/header.component';
   declarations: [
     AppComponent,
     ListComponent,
-    CounterComponent,
-    CounterbuttonComponent,
-    CounteroutputComponent,
-    CustomoutputComponent,
     HomeComponent,
-    PostsComponent,
-    AddPostComponent,
-    EditComponent,
     HeaderComponent,
   ],
   imports: [
@@ -51,6 +44,9 @@ import { HeaderComponent } from './header/header.component';
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     
   ],
+
+  // schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  
   providers: [
     {
       provide: APOLLO_OPTIONS,

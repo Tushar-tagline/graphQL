@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path:'counter',
-    component:CounterComponent
+    loadChildren:()=>import('./counters/counter.module').then(m => m.CounterModule)
   },
   {
     path:'listdata',
@@ -23,16 +23,8 @@ const routes: Routes = [
   },
   {
     path:'posts',
-    component:PostsComponent,
-    children:[{
-      path:'addpost',
-      component:AddPostComponent
-    },
-    {
-      path:'edit/:id',
-      component:EditComponent
-    }
-  ]
+    loadChildren:()=>import('./post/post.module').then(m => m.PostModule)
+    
   },
   
   {
