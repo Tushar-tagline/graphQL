@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { post } from '../model/post.model';
@@ -17,7 +17,7 @@ export class EditComponent implements OnInit {
   public updatepost!: FormGroup
   public post!: post
   public postSubscription!: Subscription
-  constructor(private active: ActivatedRoute, private store: Store<appstate>, private fb: FormBuilder) { }
+  constructor(private active: ActivatedRoute, private store: Store<appstate>, private fb: FormBuilder ,private route:Router) { }
 
   ngOnInit(): void {
     this.active.paramMap.subscribe((res) => {
@@ -37,6 +37,19 @@ export class EditComponent implements OnInit {
       title: this.post?.title,
       description: this.post?.description
     })
+  }
+
+  onSubmit(){
+    const title = this.updatepost.value.title
+    const description = this.updatepost.value.description
+
+    const post:post={
+      id:this.post.id,
+      title,
+      description
+    }
+    this.store.dispatch(updatePost1({post}))
+    this.route.navigate(['/posts'])
   }
 
   ngOnDestroy(): void {
