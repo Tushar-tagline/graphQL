@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { appstate } from 'src/app/store/app.state';
+import { loginStart, loginstart } from '../authstate/auth.action';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +11,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   public signin!:FormGroup
-  public getSingFrom !:FormGroup
-  constructor() { }
+ 
+   constructor(private store:Store<appstate>) { }
 
   ngOnInit(): void {
     this.signin = new FormGroup({
@@ -24,10 +27,13 @@ export class LoginComponent implements OnInit {
         Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-z]).{6,32}$'),
       ]),
     });
+  
   }
 
   
   public login(){
-
+   const email = this.signin.value.email;
+   const password = this.signin.value.password
+    this.store.dispatch(loginStart({email,password}))
   }
 }

@@ -13,7 +13,7 @@ const _postReducer = createReducer(initialstate,
             posts: [...state.posts, post]
         }
     }), on(updatePost1, (state, action) => {
-        // console.log('state :>> ', state);
+        console.log('state :>> ', state);
         const newpost = state.posts.map((res) => {
             return action.post.id === res.id ? action.post : res
         })
