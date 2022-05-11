@@ -11,6 +11,7 @@ import { loginStart, loginstart } from '../authstate/auth.action';
 })
 export class LoginComponent implements OnInit {
   public signin!:FormGroup
+  public token:any
  
    constructor(private store:Store<appstate>) { }
 

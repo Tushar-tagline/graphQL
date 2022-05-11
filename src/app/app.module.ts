@@ -20,12 +20,16 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { EffectsModule } from '@ngrx/effects';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     HomeComponent,
     HeaderComponent,
+   
+
   ],
   imports: [
     BrowserModule,

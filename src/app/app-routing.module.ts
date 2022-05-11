@@ -7,33 +7,37 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { PostsComponent } from './post/postslist/postslist.component';
 
+
 const routes: Routes = [
   {
-    path:'',
-    component:HomeComponent
-    
+    path: '',
+    component: HomeComponent
+
   },
   {
-    path:'counter',
-    loadChildren:()=>import('./counters/counter.module').then(m => m.CounterModule)
+    path: 'counter',
+    loadChildren: () => import('./counters/counter.module').then(m => m.CounterModule)
   },
   {
-    path:'listdata',
-    component:ListComponent
+    path: 'listdata',
+    component: ListComponent
   },
   {
-    path:'posts',
-    loadChildren:()=>import('./post/post.module').then(m => m.PostModule)
-    
+    path: 'posts',
+    loadChildren: () => import('./post/post.module').then(m => m.PostModule)
+
   },
   {
-    path:'auth',
-    loadChildren:()=>import('./auth/auth.module').then(m => m.AuthModule)
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
-  
   {
-    path:'**',
-    redirectTo:''
+    path: 'student',
+    loadChildren: () => import('./student/student.module').then(m => m.StudentModule)
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

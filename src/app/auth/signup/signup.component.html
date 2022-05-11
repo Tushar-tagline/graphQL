@@ -1,0 +1,54 @@
+<p>signup works!</p>
+<div class="container justify-content-center mt-4">
+    <div class="row justify-content-center h-100">
+        <div class="col-sm-6">
+            <div class="card my-auto shadow">
+                <div class="card-header text-center">
+                    <h3 class="font-effect-fire">SIGN-UP</h3>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label>You Have Already Account?</label>
+                        <a href="" class="ms-2 text-decoration-none " routerLink="/user/login"
+                            routerLinkActive="activelink">login</a>
+                    </div>
+                    <form [formGroup]="signup" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="name" class="form-control" id="exampleInputname" formControlName="name" />
+                            <div *ngIf="!signup.get('name')?.valid && signup.get('name')?.touched">
+                                <small class="text-danger">Please enter the name</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputemail" formControlName="email" />
+                            <div *ngIf="!signup.get('email')?.valid && signup.get('email')?.touched">
+                                <small class="text-danger">Please enter the email</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                formControlName="password" />
+                            <div *ngIf="!signup.get('password')?.valid && signup.get('password')?.touched">
+                                <small class="text-danger">Please enter the password</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="me-1"> Role</label>
+                            <select name="Role" formControlName="role">
+                                <option>Chooes</option>
+                                <option *ngFor="let item of role" id={{item.id}}>{{item.value}}</option>
+                            </select>
+                            <div *ngIf="!signup.get('role')?.valid && signup.get('role')?.touched">
+                                <small class="text-danger">Please enter the role</small>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

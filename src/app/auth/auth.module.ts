@@ -10,6 +10,7 @@ import { appreducer } from '../store/app.state';
 import { logindata } from './authstate/auth.selector';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './authstate/auth.effects';
+import { SignupComponent } from './signup/signup.component';
 
 const routes:Routes=[
   {
@@ -17,13 +18,19 @@ const routes:Routes=[
     children:[{
       path:'login',
       component:LoginComponent
-      }
+      },
+      {
+        path:'signup',
+        component:SignupComponent
+      },
+  
   ]
   }
 ]
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     CommonModule,RouterModule.forChild(routes),

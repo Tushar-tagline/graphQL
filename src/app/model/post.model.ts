@@ -3,3 +3,10 @@ export interface post{
     title:string,
     description:string
 }
+
+export interface ExamData {
+    email: string;
+    name: string;
+    status: string;
+    _id: string;
+}
