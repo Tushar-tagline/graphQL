@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { appstate } from 'src/app/store/app.state';
+import { spinerStart } from 'src/app/store/shared/shared.action';
 import { loginStart, loginstart } from '../authstate/auth.action';
 
 @Component({
@@ -35,6 +36,8 @@ export class LoginComponent implements OnInit {
   public login(){
    const email = this.signin.value.email;
    const password = this.signin.value.password
+   this.store.dispatch(spinerStart({status:true}))
     this.store.dispatch(loginStart({email,password}))
+  
   }
 }

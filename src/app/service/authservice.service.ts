@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { environment } from 'src/environments/environment';
+import { Authresponce } from '../model/authresponse';
+import { User } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,11 @@ export class AuthserviceService {
     headers = headers.set('access-token', `${this.getToken}`);
     console.log('headers :>> ', headers);
     return this.http.get<any>(this.url + 'dashboard/Teachers', { headers: headers })
+  }
+
+  formatUser(data:Authresponce){
+    const user = new User(data.name,data.email,data.password,data.token)
+    return user
   }
 }
  

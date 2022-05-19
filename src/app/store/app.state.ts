@@ -1,14 +1,12 @@
-import { postReducer } from "../post/state/post.reducer";
-import { poststate } from "../post/state/post.state";
-import { counterReducer } from "../state/couter.reducer";
-import { counterstate } from "../state/couter.state";
+
+import{spinerdata} from "../store/shared/shared.selector" 
+import { spinerreducer } from "./shared/shared.reducer";
+import { Shared } from "./shared/shared.state";
 
 export interface appstate{
-    counter:counterstate,
-    posts:poststate
+    [spinerdata]:Shared
 }
 
 export const appreducer={
-    firstngrx:counterReducer,
-    posts:postReducer
+    [spinerdata]:spinerreducer
 }

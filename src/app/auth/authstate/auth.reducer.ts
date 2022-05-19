@@ -2,7 +2,8 @@
 //     return _postReducer(state, action)
 // }
 
-import { createReducer } from "@ngrx/store"
+import { createReducer, on, State } from "@ngrx/store"
+import { loginsuccess } from "./auth.action"
 import { initialstate } from "./auth.state"
 
 export const _authreducer = createReducer(initialstate)

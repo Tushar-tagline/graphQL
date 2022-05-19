@@ -17,12 +17,12 @@ public token:any
 
   ngOnInit(): void {
    
-    this.store.dispatch(studentStart());
-    this.store.select(getAllStudent).subscribe((studentData: any) => {
-    console.log('studentData :>> ', studentData);
-      this.allStudents = studentData;
-      console.log('data :>> ', studentData);
-    });
+    // this.store.dispatch(studentStart(data));
+    // this.store.select(getAllStudent).subscribe((studentData: any) => {
+    // console.log('studentData :>> ', studentData);
+    //   this.allStudents = studentData;
+    //   console.log('data :>> ', studentData);
+    // });
   }
 
  

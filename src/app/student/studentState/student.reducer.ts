@@ -20,6 +20,6 @@ const _examReducer = createReducer(initialstate,
 )
 
 export function examReducer(state:any, action:any){
-    console.log('action :>> ', action);
+    console.log('action :>> ', action);     
     return _examReducer(state,action)
 }

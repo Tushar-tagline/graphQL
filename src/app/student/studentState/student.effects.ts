@@ -11,7 +11,7 @@ export class ExamEffects {
             console.log('action :>> ', action);
             return this.authservice.studentlist().pipe(map((data) => {
                 console.log('data :>> ', data);
-                return studentsuccess({student:data.data})
+                return studentsuccess(data)
             })
             )
         }))

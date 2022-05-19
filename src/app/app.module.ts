@@ -19,6 +19,8 @@ import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { EffectsModule } from '@ngrx/effects';
+import { LodingspinnerComponent } from './shared/lodingspinner/lodingspinner.component';
+import { appreducer } from './store/app.state';
 
 
 
@@ -28,6 +30,7 @@ import { EffectsModule } from '@ngrx/effects';
     ListComponent,
     HomeComponent,
     HeaderComponent,
+    LodingspinnerComponent,
    
 
   ],
@@ -39,9 +42,9 @@ import { EffectsModule } from '@ngrx/effects';
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(appreducer),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot(),
     
     
   ],
