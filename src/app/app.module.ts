@@ -12,15 +12,13 @@ import { ListComponent } from './list/list.component';
 
 import { StoreModule } from '@ngrx/store';
 
-import { HomeComponent } from './home/home.component';
-
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
 import { EffectsModule } from '@ngrx/effects';
 import { LodingspinnerComponent } from './shared/lodingspinner/lodingspinner.component';
 import { appreducer } from './store/app.state';
+import { CoreModule } from './core/core.module';
 
 
 
@@ -28,11 +26,7 @@ import { appreducer } from './store/app.state';
   declarations: [
     AppComponent,
     ListComponent,
-    HomeComponent,
-    HeaderComponent,
     LodingspinnerComponent,
-   
-
   ],
   imports: [
     BrowserModule,
@@ -45,7 +39,7 @@ import { appreducer } from './store/app.state';
     StoreModule.forRoot(appreducer),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     EffectsModule.forRoot(),
-    
+
     
   ],
 

@@ -3,10 +3,10 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { post } from '../model/post.model';
-import { updatePost1, update_post } from '../post/state/post.action';
-import { getpostbyid } from '../post/state/post.selector';
-import { appstate } from '../store/app.state';
+import { post } from '../../../model/post.model';
+import { updatePost1, update_post } from '../state/post.action';
+import { getpostbyid } from '../state/post.selector';
+import { appstate } from '../../../store/app.state';
 
 @Component({
   selector: 'app-edit',

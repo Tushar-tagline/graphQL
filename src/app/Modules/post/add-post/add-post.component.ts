@@ -3,10 +3,10 @@ import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angula
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { validate } from 'graphql';
-import { post } from '../model/post.model';
-import { addpost, add_post } from '../post/state/post.action';
-import { getpost } from '../post/state/post.selector';
-import { appstate } from '../store/app.state';
+import { post } from '../../../model/post.model';
+import { addpost, add_post } from '../state/post.action';
+import { getpost } from '../state/post.selector';
+import { appstate } from '../../../store/app.state';
 
 @Component({
   selector: 'app-add-post',

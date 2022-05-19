@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddPostComponent } from './add-post/add-post.component';
-import { CounterComponent } from './counters/counter/counter.component';
-import { EditComponent } from './edit/edit.component';
-import { HomeComponent } from './home/home.component';
+import { AddPostComponent } from './Modules/post/add-post/add-post.component';
+import { CounterComponent } from './Modules/counters/counter/counter.component';
+import { EditComponent } from './Modules/post/edit/edit.component';
 import { ListComponent } from './list/list.component';
-import { PostsComponent } from './post/postslist/postslist.component';
+import { PostsComponent } from './Modules/post/postslist/postslist.component';
+import { DashboardComponent } from './Modules/home/dashboard/dashboard.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: DashboardComponent
 
   },
   {
     path: 'counter',
-    loadChildren: () => import('./counters/counter.module').then(m => m.CounterModule)
+    loadChildren: () => import('./Modules/counters/counter.module').then(m => m.CounterModule)
   },
   {
     path: 'listdata',
@@ -24,12 +24,12 @@ const routes: Routes = [
   },
   {
     path: 'posts',
-    loadChildren: () => import('./post/post.module').then(m => m.PostModule)
+    loadChildren: () => import('./Modules/post/post.module').then(m => m.PostModule)
 
   },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./Modules/auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'student',
