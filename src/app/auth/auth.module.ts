@@ -6,11 +6,12 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes, ROUTES } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { appreducer } from '../../store/app.state';
+import { appreducer } from '../store/app.state';
 import { logindata } from './authstate/auth.selector';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './authstate/auth.effects';
 import { SignupComponent } from './signup/signup.component';
+import { CoreModule } from '../core/core.module';
 
 const routes:Routes=[
   {
@@ -37,7 +38,7 @@ const routes:Routes=[
     ReactiveFormsModule,
     StoreModule.forFeature(logindata,appreducer),
     EffectsModule.forFeature([AuthEffects]),
-   
+    CoreModule
   ]
 })
 export class AuthModule { }

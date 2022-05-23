@@ -3,9 +3,9 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { Store, StoreModule } from '@ngrx/store';
-import { AddPostComponent } from './add-post/add-post.component';
-import { CoreModule } from '../../core/core.module';
-import { EditComponent } from './edit/edit.component';
+import { AddPostComponent } from '../add-post/add-post.component';
+import { CoreModule } from '../core/core.module';
+import { EditComponent } from '../edit/edit.component';
 import { PostsComponent } from './postslist/postslist.component';
 import { postReducer } from './state/post.reducer';
 

@@ -39,7 +39,7 @@ import { CoreModule } from './core/core.module';
     StoreModule.forRoot(appreducer),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     EffectsModule.forRoot(),
-
+    CoreModule
     
   ],
 

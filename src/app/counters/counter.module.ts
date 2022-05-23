@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { Router, RouterModule, Routes } from "@angular/router";
 import { StoreModule } from "@ngrx/store";
 import { CoreModule } from "src/app/core/core.module";
-import { counterReducer } from "../../state/couter.reducer";
+import { counterReducer } from "../state/couter.reducer";
 import { CounterComponent } from "./counter/counter.component";
 import { CounterbuttonComponent } from "./counterbutton/counterbutton.component";
 import { CounteroutputComponent } from "./counteroutput/counteroutput.component";
@@ -12,7 +12,7 @@ import { CustomoutputComponent } from "./customoutput/customoutput.component";
 
 const routes :Routes=[
     {
-        path:'',
+        path:'counter',
         component:CounterComponent
     }
 ]
