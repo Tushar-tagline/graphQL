@@ -19,6 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { LodingspinnerComponent } from './shared/lodingspinner/lodingspinner.component';
 import { appreducer } from './store/app.state';
 import { CoreModule } from './core/core.module';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -27,6 +28,7 @@ import { CoreModule } from './core/core.module';
     AppComponent,
     ListComponent,
     LodingspinnerComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
